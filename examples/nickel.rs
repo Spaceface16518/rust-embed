@@ -34,7 +34,6 @@ impl<D> Middleware<D> for Asset {
 fn send_file<'a, D>(path: &str, mut res: Response<'a, D>) -> MiddlewareResult<'a, D> {
   if let Some(file) = <Asset as RustEmbed>::get(path) {
     let mime = mime_guess::from_path(path).first_or_octet_stream();
-    // Lookup mime from file extension
     res.set(ContentType(Mime::from_str(mime.as_ref()).unwrap()));
     res.send(file.data.as_ref())
   } else {
