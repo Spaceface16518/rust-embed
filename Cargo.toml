@@ -36,6 +36,11 @@ name = "poem"
 path = "examples/poem.rs"
 required-features = ["poem-ex"]
 
+[[example]]
+name = "nickel"
+path = "examples/nickel.rs"
+required-features = ["nickel-ex"]
+
 [[test]]
 name = "interpolated_path"
 path = "tests/interpolated_path.rs"
@@ -61,6 +66,7 @@ rocket = { version = "0.5.0-rc.1", default-features = false, optional = true }
 axum = { version = "0.4", default-features = false, features = ["http1"], optional = true  }
 poem = { version = "1.0.8", default-features = false, optional = true  }
 salvo = { version = "0.16", default-features = false, optional = true  }
+nickel = { version = "0.11.0", optional = true }
 
 [dev-dependencies]
 sha2 = "0.9"
@@ -75,6 +81,7 @@ warp-ex = ["warp", "tokio", "mime_guess"]
 axum-ex = ["axum", "tokio", "mime_guess"]
 poem-ex = ["poem", "tokio", "mime_guess", "hex"]
 salvo-ex = ["salvo", "tokio", "mime_guess", "hex"]
+nickel-ex = ["nickel", "mime_guess"]
 
 
 [badges]
@@ -86,3 +93,4 @@ maintenance = { status = "passively-maintained" }
 
 [workspace]
 members = ["impl", "utils"]
+
